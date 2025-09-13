@@ -1,0 +1,710 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for darker horror theme with blood-red accents */
+  --background: #000000;
+  --foreground: #ff4444;
+  --card: #0a0a0a;
+  --card-foreground: #ff6666;
+  --popover: #1a0000;
+  --popover-foreground: #ff4444;
+  --primary: #ff0000;
+  --primary-foreground: #000000;
+  --secondary: #cc0000;
+  --secondary-foreground: #ffffff;
+  --muted: #330000;
+  --muted-foreground: #ff6666;
+  --accent: #ff3333;
+  --accent-foreground: #000000;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #660000;
+  --input: #1a0000;
+  --ring: #ff0000;
+  --chart-1: #ff0000;
+  --chart-2: #cc0000;
+  --chart-3: #ff3333;
+  --chart-4: #330000;
+  --chart-5: #ff6666;
+  --radius: 0.5rem;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #ff4444;
+  --sidebar-primary: #ff0000;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #cc0000;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #660000;
+  --sidebar-ring: #ff0000;
+}
+
+.dark {
+  /* Dark mode uses same horror colors */
+  --background: #000000;
+  --foreground: #ff4444;
+  --card: #0a0a0a;
+  --card-foreground: #ff6666;
+  --popover: #1a0000;
+  --popover-foreground: #ff4444;
+  --primary: #ff0000;
+  --primary-foreground: #000000;
+  --secondary: #cc0000;
+  --secondary-foreground: #ffffff;
+  --muted: #330000;
+  --muted-foreground: #ff6666;
+  --accent: #ff3333;
+  --accent-foreground: #000000;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #660000;
+  --input: #1a0000;
+  --ring: #ff0000;
+  --chart-1: #ff0000;
+  --chart-2: #cc0000;
+  --chart-3: #ff3333;
+  --chart-4: #330000;
+  --chart-5: #ff6666;
+  --radius: 0.5rem;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #ff4444;
+  --sidebar-primary: #ff0000;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #cc0000;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #660000;
+  --sidebar-ring: #ff0000;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Added cursor and selection styling for horror theme */
+    cursor: crosshair;
+  }
+
+  ::selection {
+    background-color: #ff0000;
+    color: #000000;
+    text-shadow: 0 0 10px #ffffff;
+  }
+}
+
+/* Enhanced animations with more horror effects */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(3px, 3px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(3px, -3px);
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #ff0000;
+  }
+  50% {
+    box-shadow: 0 0 25px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+  }
+}
+
+/* Added new horror-themed animations */
+@keyframes blood-drip {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes creepy-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+}
+
+@keyframes screen-distort {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.02) skewX(0.5deg);
+  }
+}
+
+/* Added preloader-specific animations */
+@keyframes horror-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loading-bar-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #ff0000;
+  }
+  50% {
+    box-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
+  }
+}
+
+@keyframes skull-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes text-corruption {
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.3;
+    transform: skewX(2deg);
+  }
+}
+
+/* Added new horror-themed animations and effects */
+@keyframes blood-splatter {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes crawling-text {
+  0% {
+    transform: translateX(-100px) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    transform: translateX(100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes nightmare-shake {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+  10% {
+    transform: translateX(-2px) translateY(-1px);
+  }
+  20% {
+    transform: translateX(2px) translateY(1px);
+  }
+  30% {
+    transform: translateX(-1px) translateY(-2px);
+  }
+  40% {
+    transform: translateX(1px) translateY(2px);
+  }
+  50% {
+    transform: translateX(-2px) translateY(1px);
+  }
+  60% {
+    transform: translateX(2px) translateY(-1px);
+  }
+  70% {
+    transform: translateX(-1px) translateY(2px);
+  }
+  80% {
+    transform: translateX(1px) translateY(-2px);
+  }
+  90% {
+    transform: translateX(-2px) translateY(-1px);
+  }
+}
+
+@keyframes blood-pulse {
+  0%,
+  100% {
+    background-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+  }
+  50% {
+    background-color: #cc0000;
+    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff0000;
+  }
+}
+
+@keyframes terror-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  25% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 45px #ff0000, 0 0 60px #ff0000;
+  }
+  75% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+}
+
+@keyframes screen-corruption {
+  0%,
+  90%,
+  100% {
+    filter: none;
+  }
+  92% {
+    filter: hue-rotate(90deg) saturate(2) brightness(1.5);
+  }
+  94% {
+    filter: hue-rotate(180deg) saturate(3) brightness(0.5);
+  }
+  96% {
+    filter: hue-rotate(270deg) saturate(1.5) brightness(2);
+  }
+  98% {
+    filter: hue-rotate(360deg) saturate(0.5) brightness(0.3);
+  }
+}
+
+@keyframes demonic-breathing {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Added CSS classes for new horror effects */
+.blood-splatter {
+  background: radial-gradient(circle, #ff0000 0%, #cc0000 30%, #990000 60%, transparent 100%);
+  border-radius: 50%;
+  animation: blood-splatter 3s ease-out forwards;
+}
+
+.crawling-text {
+  animation: crawling-text 4s ease-in-out forwards;
+  filter: drop-shadow(0 0 10px #ff0000);
+}
+
+.flash {
+  animation: flash 0.1s ease-in-out;
+}
+
+.nightmare-shake {
+  animation: nightmare-shake 0.8s ease-in-out infinite;
+}
+
+.blood-pulse {
+  animation: blood-pulse 1.5s ease-in-out infinite;
+}
+
+.terror-glow {
+  animation: terror-glow 3s ease-in-out infinite;
+}
+
+.screen-corruption {
+  animation: screen-corruption 8s ease-in-out infinite;
+}
+
+.demonic-breathing {
+  animation: demonic-breathing 4s ease-in-out infinite;
+}
+
+/* Enhanced blood mode styling */
+.blood-mode {
+  background: radial-gradient(circle at 30% 70%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(139, 0, 0, 0.08) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(255, 0, 0, 0.02) 0%, transparent 100%);
+}
+
+.blood-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(139, 0, 0, 0.12) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+  animation: blood-pulse 6s ease-in-out infinite;
+}
+
+/* Enhanced glitch effects */
+.glitch-effect {
+  position: relative;
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-effect::before {
+  animation: glitch 0.3s ease-in-out infinite reverse;
+  color: #ff0000;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-effect::after {
+  animation: glitch 0.3s ease-in-out infinite;
+  color: #00ff00;
+  z-index: -2;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+/* Enhanced scanlines with more horror effects */
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 50%, rgba(255, 0, 0, 0.08) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 0, 0, 0.03) 50%);
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  animation: screen-distort 8s ease-in-out infinite, screen-corruption 12s ease-in-out infinite;
+}
+
+/* Added cursor effects for horror theme */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23ff0000" stroke-width="2"/><circle cx="10" cy="10" r="2" fill="%23ff0000"/></svg>'),
+    crosshair;
+}
+
+button,
+a,
+[role="button"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="%23ff0000" stroke="%23000000" stroke-width="1"/></svg>'),
+    pointer;
+}
+
+/* Enhanced selection styling */
+::selection {
+  background-color: #ff0000;
+  color: #000000;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+::-moz-selection {
+  background-color: #ff0000;
+  color: #000000;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+/* Added horror-themed focus effects */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid #ff0000;
+  outline-offset: 2px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  animation: terror-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced card hover effects with more horror */
+.card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(255, 0, 0, 0.4), 0 5px 15px rgba(255, 0, 0, 0.2), inset 0 0 20px rgba(255, 0, 0, 0.1);
+  animation: demonic-breathing 2s ease-in-out infinite;
+}
+
+/* Added pulsing border effects */
+.pulse-border {
+  border: 2px solid #ff0000;
+  animation: blood-pulse 2s ease-in-out infinite;
+}
+
+/* Enhanced button hover effects */
+button:hover {
+  animation: nightmare-shake 0.5s ease-in-out infinite, terror-glow 2s ease-in-out infinite;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+/* Added loading spinner with horror theme */
+.horror-spinner {
+  border: 4px solid rgba(255, 0, 0, 0.3);
+  border-top: 4px solid #ff0000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite, blood-pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Added missing preloader animations for horror effects */
+@keyframes glitch-text {
+  0%,
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.glitch-text {
+  animation: glitch-text 0.5s ease-in-out infinite;
+  text-shadow: 2px 0 #ff0000, -2px 0 #00ff00;
+}
+
+.horror-pulse {
+  animation: horror-pulse 2s ease-in-out infinite;
+}
+
+.loading-bar-glow {
+  animation: loading-bar-glow 1.5s ease-in-out infinite;
+}
+
+.text-corruption {
+  animation: text-corruption 3s ease-in-out infinite;
+}
+
+.blood-drip {
+  animation: blood-drip 4s linear infinite;
+}
+
+/* Enhanced text shadow effects for horror atmosphere */
+.text-shadow-glow {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Additional scrollbar styling for dark theme */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f2027;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
+
+.scrollbar-track-green-950::-webkit-scrollbar-track {
+  background: #0f2027;
+}
+
+.scrollbar-thumb-green-600::-webkit-scrollbar-thumb {
+  background: #16a34a;
+}
+
+/* Matrix rain animation positioning */
+.matrix-rain {
+  animation: matrix-rain linear infinite;
+  position: absolute;
+  top: -100vh;
+  white-space: nowrap;
+}
